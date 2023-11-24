@@ -1,14 +1,14 @@
-import { User } from "@/utils/user";
-import { UserRepository } from "../user-repository";
-import { randomUUID } from "node:crypto";
+import { User } from '@/utils/user'
+import { UserRepository } from '../user-repository'
+import { randomUUID } from 'node:crypto'
 
-export class InMemoryUsersRepository implements UserRepository{
+export class InMemoryUsersRepository implements UserRepository {
   public items: User[] = []
 
   async findById(id: string) {
     const user = this.items.find((item) => item.id === id)
 
-    if(!user) return null
+    if (!user) return null
 
     return user
   }
@@ -16,7 +16,7 @@ export class InMemoryUsersRepository implements UserRepository{
   async findByUserName(userName: string) {
     const user = this.items.find((item) => item.user_name === userName)
 
-    if(!user) return null
+    if (!user) return null
 
     return user
   }
@@ -33,5 +33,4 @@ export class InMemoryUsersRepository implements UserRepository{
 
     return user
   }
-
 }
