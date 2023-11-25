@@ -1,0 +1,14 @@
+# docker run --name login_api -e POSTGRESQL_USERNAME=user -e POSTGRESQL_PASSWORD=user -e
+# POSTGRESQL_DATABASE=loginapi -p 5432:5432 bitnami/postgresql
+
+version: '3'
+
+services:
+  api-solid-pg:
+    image: bitnami/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=user
+      - POSTGRESQL_PASSWORD=user
+      - POSTGRESQL_DATABASE=loginapi
