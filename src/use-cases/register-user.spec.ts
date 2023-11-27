@@ -14,7 +14,7 @@ describe('User Use Case', () => {
   })
 
   it('should be able to register', async () => {
-    const { user } = await sut.excute({
+    const { user } = await sut.execute({
       userName: 'bruno_barbosa',
       name: 'Bruno',
       password: '123456',
@@ -24,7 +24,7 @@ describe('User Use Case', () => {
   })
 
   it('should hash password upon registration', async () => {
-    const { user } = await sut.excute({
+    const { user } = await sut.execute({
       userName: 'bruno_barbosa',
       name: 'Bruno',
       password: '123456',
@@ -41,14 +41,14 @@ describe('User Use Case', () => {
   it('should not be able to register with same userName', async () => {
     const userName = 'bruno_barbosa'
 
-    await sut.excute({
+    await sut.execute({
       userName,
       name: 'Bruno',
       password: '123456',
     })
 
     await expect(() =>
-      sut.excute({
+      sut.execute({
         userName,
         name: 'Bruno',
         password: '123456',

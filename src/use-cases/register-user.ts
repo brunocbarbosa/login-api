@@ -16,7 +16,7 @@ interface registerUserUseCaseResponse {
 export class RegisterUserUseCase {
   constructor(private userRepository: UserRepository) {}
 
-  async excute({
+  async execute({
     userName,
     name,
     password,
@@ -27,6 +27,8 @@ export class RegisterUserUseCase {
       await this.userRepository.findByUserName(userName)
 
     if (userWithSameUserName) throw new UserAlreadyExistsError()
+
+    console.log(`passou`)
 
     const user = await this.userRepository.create({
       user_name: userName,
