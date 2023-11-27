@@ -2,6 +2,7 @@ import fastifyJwt from '@fastify/jwt'
 import fastify from 'fastify'
 import { env } from './env'
 import { ZodError } from 'zod'
+import { usersRoutes } from './http/users/routes'
 
 export const app = fastify()
 
@@ -11,6 +12,8 @@ app.register(fastifyJwt, {
     expiresIn: '10m',
   },
 })
+
+app.register(usersRoutes)
 
 app.setErrorHandler((error, _req, rep) => {
   if (error instanceof ZodError) {

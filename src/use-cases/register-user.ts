@@ -16,7 +16,7 @@ interface registerUserUseCaseResponse {
 export class RegisterUserUseCase {
   constructor(private userRepository: UserRepository) {}
 
-  async excute({
+  async execute({
     userName,
     name,
     password,
