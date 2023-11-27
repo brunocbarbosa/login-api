@@ -28,6 +28,8 @@ export class RegisterUserUseCase {
 
     if (userWithSameUserName) throw new UserAlreadyExistsError()
 
+    console.log(`passou`)
+
     const user = await this.userRepository.create({
       user_name: userName,
       name,
