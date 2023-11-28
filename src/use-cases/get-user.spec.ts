@@ -20,7 +20,7 @@ describe('Get User Use Case', () => {
       password_hash: await hash('123456', 6),
     })
 
-    const { user } = await sut.execute({ id: createdUser.id })
+    const { user } = await sut.execute({ userId: createdUser.id })
 
     expect(user.id).toEqual(expect.any(String))
     expect(user.user_name).toEqual('bruno_barbosa')
@@ -29,7 +29,7 @@ describe('Get User Use Case', () => {
   it('should not be able to register with same userName', async () => {
     await expect(() =>
       sut.execute({
-        id: 'null-id',
+        userId: 'null-id',
       }),
     ).rejects.toBeInstanceOf(UserNotFoundError)
   })

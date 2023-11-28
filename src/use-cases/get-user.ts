@@ -3,7 +3,7 @@ import { User } from '@/utils/user'
 import { UserNotFoundError } from './errors/user-not-found-error'
 
 interface getUserUseCaseRequest {
-  id: string
+  userId: string
 }
 
 interface getUserUseCaseResponse {
@@ -14,9 +14,9 @@ export class GetUserUseCase {
   constructor(private userRepository: UserRepository) {}
 
   async execute({
-    id,
+    userId,
   }: getUserUseCaseRequest): Promise<getUserUseCaseResponse> {
-    const user = await this.userRepository.findById(id)
+    const user = await this.userRepository.findById(userId)
 
     if (!user) throw new UserNotFoundError()
 
