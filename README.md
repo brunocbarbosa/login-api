@@ -28,9 +28,9 @@ An API with study finality. The objective is show a login function with using JW
 
 ## Routes
 ## Contest
-- POST | /users | Register a new user |   userName: Sring
+- POST | /users | Register a new user |   userName: Sring,
                                                 name: String,
-                                                password string
+                                                password: String
 
-- POST | /sessions | Return a tken 
+- POST | /sessions | Return a token 
 - GET | /users/:userId | Bearer Token | Return user infos
